@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chat>
+    <users>
+        <user>
+            <name>Egor</name>
+            <role>ADMIN</role>
+        </user>
+        <user>
+            <name>Denis</name>
+            <role>USER</role>
+        </user>
+        <user>
+            <name>Vlad</name>
+            <role>USER</role>
+        </user>
+        <user>
+            <name>Evgeniy</name>
+            <role>USER</role>
+        </user>
+    </users>
+    <messages>
+        <message>
+            <user_from>Egor</user_from>
+            <time_stamp>2021-04-17T09:00:00</time_stamp>
+            <messageContent>hello1</messageContent>
+            <status>LOGIN</status>
+        </message>
+        <message>
+            <user_from>Evgeniy</user_from>
+            <time_stamp>2021-04-17T09:00:00</time_stamp>
+            <messageContent>hello2</messageContent>
+            <status>MESSAGE</status>
+        </message>
+        <message>
+            <user_from>Denis</user_from>
+            <time_stamp>2021-04-17T09:00:00</time_stamp>
+            <messageContent>hello3</messageContent>
+            <status>MESSAGE</status>
+        </message>
+    </messages>
+</chat>

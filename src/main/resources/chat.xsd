@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="chat">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="users" type="userInfo"/>
+                <xs:element name="statuses" type="statusInfo"/>
+                <xs:element name="messages" type="messageInfo"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+
+
+    <xs:complexType name="userInfo">
+        <xs:sequence>
+            <xs:element name="user" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element type="xs:string" name="name"/>
+                        <xs:element type="xs:string" name="role"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="statusInfo">
+        <xs:sequence>
+            <xs:element name="status" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element type="xs:string" name="title"/>
+                        <xs:element type="xs:string" name="description"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="messageInfo">
+        <xs:sequence>
+            <xs:element name="message" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:all>
+                        <xs:element type="xs:string" name="user_from"/>
+                        <xs:element type="xs:dateTime" name="time_stamp"/>
+                        <xs:element type="xs:string" name="message"/>
+                        <xs:element type="xs:string" name="status"/>
+                    </xs:all>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

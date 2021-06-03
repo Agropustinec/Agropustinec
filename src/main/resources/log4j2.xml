@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+
+    <Properties>
+        <Property name="LOG_DATEFORMAT_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS}"/>
+        <Property name="LOG_LEVEL_PATTERN" value="%-5p"/>
+        <Property name="LOG_THREAD_NAME_PATTERN" value="[%t]"/>
+        <Property name="CONSOLE_APPENDER_PATTERN" value="%clr{${LOG_DATEFORMAT_PATTERN}}{faint} %clr{${LOG_THREAD_NAME_PATTERN}}{magenta} %clr{${LOG_LEVEL_PATTERN}} %clr{(%F:%L)}{cyan} %clr{-}{faint} %m%n"/>
+        <Property name="FILE_APPENDER_PATTERN" value="${LOG_DATEFORMAT_PATTERN} ${LOG_THREAD_NAME_PATTERN} ${LOG_LEVEL_PATTERN} (%F:%L) - %m%n"/>
+        <Property name="LOG_FILE_NAME" value="logger.log"/>
+        <Property name="LOG_DIR" value="src/main/resources/"/>
+    </Properties>
+
+    <Appenders>
+        <Console name="LogToConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="${CONSOLE_APPENDER_PATTERN}"/>
+        </Console>
+
+        <RollingFile name="LogToFile" fileName="${LOG_DIR}/${LOG_FILE_NAME}" filePattern="${LOG_DIR}/${LOG_FILE_NAME}.%d{yyyy-MM-dd}">
+            <PatternLayout pattern="${FILE_APPENDER_PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="DEBUG">
+            <AppenderRef ref="LogToFile"/>
+            <AppenderRef ref="LogToConsole"/>
+        </Root>
+    </Loggers>
+</Configuration>
